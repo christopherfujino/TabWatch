@@ -18,23 +18,31 @@
 
   <hr>
 
-  <p>You have <code><span id="globalTabCount">0</span></code> tabs open globally.</p>
-  <p>You have <code><span id="localTabCount">0</span></code> tabs open in this window.</p>
-  <form>
-    <fieldset>
-      <legend>Desired number of tabs</legend>
-      <input style="width:3em;" value="5" type=number min="1">
-    </fieldset>
+  <section class="active" id="statusSection">
+    <p>You have <code><span id="globalTabCount">0</span></code> tabs open globally.</p>
+    <p>You have <code><span id="localTabCount">0</span></code> tabs open in this window.</p>
+  </section>
 
-    <fieldset>
-      <legend>Which tabs would you like to track?</legend>
-      <input name=tabScope type=radio value="global" checked>
-      <label>All tabs</label><br>
-      
-      <input name=tabScope type=radio value="window">
-      <label>Tabs in this window</label>
-    </fieldset>
-  </form>
+  <section id="preferencesSection">
+    <form>
+      <fieldset>
+        <legend>Desired number of tabs</legend>
+        <input style="width:3em;" value="5" type=number min="1">
+      </fieldset>
+
+      <fieldset>
+        <legend>Which tabs would you like to track?</legend>
+        <input name=tabScope type=radio value="global" checked>
+        <label>All tabs</label><br>
+        
+        <input name=tabScope type=radio value="window">
+        <label>Tabs in this window</label>
+      </fieldset>
+    </form>
+  </section>
+
+  <section id="archiveSection">
+  </section>
   <script src="dialog.js"></script>
 </body>
 </html>

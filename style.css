@@ -24,7 +24,7 @@ body {
   margin-right: 0px;
 }
 
-.nav-links > li:hover {
+.nav-links > li:hover:not(.active) {
   cursor: pointer;
   user-select: none;
   text-decoration: underline;
