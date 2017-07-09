@@ -5,11 +5,11 @@ function getSectionFromNav (nav) {
 }
 
 navLinks.addEventListener('click', function (e) {
-  target = e.target;
+  let target = e.target;
   if (target.nodeName !== 'LI' || target.classList.contains('active')) return;
   let lastNav = navLinks.querySelector('.active')
   lastNav.classList.remove('active');
-  lastSection = getSectionFromNav(lastNav);
+  let lastSection = getSectionFromNav(lastNav);
   lastSection.classList.remove('active');
   target.classList.add('active'); // change styling of clicked nav el
   let nextSection = getSectionFromNav(target);

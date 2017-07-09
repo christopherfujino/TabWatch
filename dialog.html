@@ -11,7 +11,8 @@
     <ul id='nav-links'>
       <li class="active" data-section="statusSection">Status</li>
       <li data-section="preferencesSection">Preferences</li>
-      <li data-section="archiveSection">Archive Tabs</li>
+      <li data-section="archiveSection">Archive</li>
+      <li data-section="aboutSection">About</li>
     </ul>
     <div class="clear-both"></div>
   </nav>
@@ -32,21 +33,27 @@
 
       <fieldset>
         <legend>Which tabs would you like to track?</legend>
-        <input name=tabScope type=radio value="global" checked>
-        <label>All tabs</label><br>
+        <input name=tabScope type=radio value="window" checked>
+        <label>Tabs in this window</label></input><br>
         
-        <input name=tabScope type=radio value="window">
-        <label>Tabs in this window</label>
+        <input name=tabScope type=radio value="global">
+        <label>All tabs</label></input>
       </fieldset>
     </form>
   </section>
 
   <section id="archiveSection">
+    Sorry, not implemented yet!
   </section>
+
+  <section id="aboutSection">
+    TabWatch written by Christopher Fujino. Source code can be found on <a href="https://github.com/christopherfujino/TabWatch">GitHub</a>.
+  </section>
+
   <script src="dialog.js"></script>
 
   <footer>
-    TabWatch written by Christopher Fujino.
+    TabWatch written by <a href="mailto:christopherfujino@gmail.com">Christopher Fujino</a>.
   </footer>
 </body>
 </html>

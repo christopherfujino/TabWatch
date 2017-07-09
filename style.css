@@ -8,6 +8,7 @@ body {
 
 section {
   display: none;
+  margin-bottom: 2em;
 }
 
 section.active {
@@ -35,6 +36,15 @@ section.active {
 #nav-links > li:hover:not(.active) {
   cursor: pointer;
   user-select: none;
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
   text-decoration: underline;
 }
 
