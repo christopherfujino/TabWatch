@@ -1,4 +1,4 @@
-chrome.tabs.getAllInWindow(function (arr) {
+chrome.tabs.query({}, function (arr) {
   arr.forEach(function (tab) {
     let span = document.getElementById('tabCount');
     let count = parseInt(span.innerHTML, 10);
