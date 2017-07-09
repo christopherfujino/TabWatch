@@ -1,3 +1,10 @@
+const colors = {
+  green: '#008744',
+  blue: '#0057e7',
+  red: '#d62d20',
+  yellow: 'ffa700'
+}
+
 function updateBadge () {
   chrome.tabs.query({}, function (tabs) {
     chrome.browserAction.setBadgeText({
