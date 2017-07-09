@@ -1,3 +1,6 @@
+// could this be an event page rather than background?
+// https://developer.chrome.com/extensions/event_pages
+
 const colors = {
   green: '#008744',
   blue: '#0057e7',
