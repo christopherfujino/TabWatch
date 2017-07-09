@@ -5,3 +5,23 @@
 body {
   width: 250px;
 }
+
+.nav-links {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.nav-links > li {
+  float: left;
+  margin-right: 2em;
+}
+
+.nav-links > li:hover {
+  cursor: pointer;
+  user-select: none;
+  text-decoration: underline;
+}
+
+.clear-both {
+  clear: both;
+}
