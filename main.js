@@ -2,7 +2,8 @@ const colors = {
   green: '#008744',
   blue: '#0057e7',
   red: '#d62d20',
-  yellow: 'ffa700'
+  yellow: '#ffa700',
+  white: '#ffffff'
 }
 
 function updateBadge () {
