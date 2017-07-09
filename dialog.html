@@ -7,9 +7,15 @@
 </head>
 <body>
   <H1>TabWatch</h1>
-  <p>You have <code><span id="tabCount"></span></code> <span class="tabType">global</span> tabs open.</p>
+  <p>You have <code><span id="globalTabCount">0</span></code> tabs open globally.</p>
+  <p>You have <code><span id="localTabCount">0</span></code> tabs open in this window.</p>
 
   <form>
+    <fieldset>
+      <legend>Desired number of tabs</legend>
+      <input style="width:3em;" value="5" type=number min="1">
+    </fieldset>
+
     <fieldset>
       <legend>Which tabs would you like to track?</legend>
       <input name=tabScope type=radio value="global" checked>
