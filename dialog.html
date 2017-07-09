@@ -8,10 +8,10 @@
 <body>
   <H1>TabWatch</h1>
   <nav>
-    <ul class='nav-links'>
-      <li class="active">Status</li>
-      <li>Preferences</li>
-      <li>Archive Tabs</li>
+    <ul id='nav-links'>
+      <li class="active" data-section="statusSection">Status</li>
+      <li data-section="preferencesSection">Preferences</li>
+      <li data-section="archiveSection">Archive Tabs</li>
     </ul>
     <div class="clear-both"></div>
   </nav>
@@ -44,5 +44,9 @@
   <section id="archiveSection">
   </section>
   <script src="dialog.js"></script>
+
+  <footer>
+    TabWatch written by Christopher Fujino.
+  </footer>
 </body>
 </html>
