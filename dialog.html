@@ -7,8 +7,18 @@
 </head>
 <body>
   <H1>TabWatch</h1>
-  <div>You have <code><span id="tabCount"></span></code> <span class="tabType">global</span> tabs open.</div>
+  <p>You have <code><span id="tabCount"></span></code> <span class="tabType">global</span> tabs open.</p>
 
+  <form>
+    <fieldset>
+      <legend>Which tabs would you like to track?</legend>
+      <input name=tabScope type=radio value="global" checked>
+      <label>All tabs</label><br>
+      
+      <input name=tabScope type=radio value="window">
+      <label>Tabs in this window</label>
+    </fieldset>
+  </form>
   <script src="dialog.js"></script>
 </body>
 </html>
