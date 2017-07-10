@@ -22,9 +22,9 @@ const colors = {
 }
 
 function updateBadge () {
-  chrome.storage.sync.get('tabScope', function (scope) {
+  chrome.storage.sync.get('tabScope', function (res) {
     let config = {};
-    if (scope === 'local') config.currentWindow = true;
+    if (res.tabScope === 'local') config.currentWindow = true;
 
     chrome.tabs.query(config, function (tabs) {
       chrome.browserAction.setBadgeText({

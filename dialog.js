@@ -1,15 +1,25 @@
 const navLinks = document.getElementById('nav-links');
 
 let tabPicker = document.getElementById('tabPicker');
-chrome.storage.sync.get('tabLimit', function (res) {
+chrome.storage.sync.get(['tabLimit', 'tabScope'], function (res) {
   tabPicker.value = res.tabLimit;
+  document.querySelector(`input[value="${res.tabScope}"]`).value = true;
 });
 
+const updateBadge = chrome.extension.getBackgroundPage().updateBadge;
+
 tabPicker.addEventListener('input', function (e) {
-  let value = e.target.value;
-  let updateBadge = chrome.extension.getBackgroundPage().updateBadge;
-  chrome.storage.sync.set({tabLimit: value},updateBadge);
+  const limit = e.target.value;
+  chrome.storage.sync.set({tabLimit: limit}, updateBadge);
 });
+
+let x = document.querySelectorAll('input[name="tabScope"]');
+x.forEach(function (radio) {
+  radio.addEventListener('change', function (e) {
+    const scope = e.target.value;
+    chrome.storage.sync.set({tabScope: scope}, updateBadge);
+  })
+})
 
 function getSectionFromNav (nav) {
   return document.getElementById(nav.getAttribute('data-section'));
