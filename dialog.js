@@ -15,9 +15,6 @@ tabPicker.addEventListener('input', function (e) {
 
 document.querySelectorAll('input[name="tabScope"]').forEach(function (radio) {
   radio.addEventListener('change', function (e) {
-    //console.log(e.target.value);
-    console.log(this.value);
-    //const scope = e.target.value;
     let scope = this.value;
     chrome.storage.sync.set({tabScope: scope}, updateBadge);
   })

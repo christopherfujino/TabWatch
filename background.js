@@ -2,9 +2,10 @@
 // https://developer.chrome.com/extensions/event_pages
 
 // load/set chrome.sync settings
-chrome.storage.sync.set({ tabScope: 'window', tabLimit: '5', version: [0, 4, 0] }, updateBadge);
+const currentVersion = [0, 4, 0];
+chrome.storage.sync.set({ tabScope: 'window', tabLimit: '5', version: currentVersion }, updateBadge);
 /*
-chrome.storage.sync.get(['tabScope', 'tabLimit'], function (res) {
+chrome.storage.sync.get(['tabScope', 'tabLimit', 'version'], function (res) {
   if (!res.tabScope || !res.tabLimit) {
     chrome.storage.sync.set({
       'tabScope' : 'window',
