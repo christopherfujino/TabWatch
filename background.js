@@ -22,7 +22,6 @@ const colors = {
 }
 
 function updateBadge () {
-  console.log('Entered updateBadge()...')
   chrome.storage.sync.get('tabScope', function (scope) {
     let config = {};
     if (scope === 'local') config.currentWindow = true;
@@ -34,7 +33,6 @@ function updateBadge () {
       let color;
       chrome.storage.sync.get('tabLimit', function (res) {
         limit = parseInt(res.tabLimit, 10);
-        console.log(`TabLimit is currently: ${limit}`);
         if (tabs.length < limit) color = colors.green;
         else if (tabs.length === limit) color = colors.yellow;
         else color = colors.red;
@@ -50,5 +48,6 @@ chrome.tabs.onCreated.addListener(updateBadge);
 chrome.tabs.onRemoved.addListener(updateBadge);
 chrome.tabs.onDetached.addListener(updateBadge);
 chrome.tabs.onAttached.addListener(updateBadge);
-//chrome.tabs.onActivated.addListener(updateBadge);
+
+// can we remove this?
 chrome.windows.onFocusChanged.addListener(updateBadge);
