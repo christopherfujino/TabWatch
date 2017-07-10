@@ -7,10 +7,15 @@
 </head>
 <body>
   <H1>TabWatch</h1>
+  
+  <header>
+    <p>You have <code><span id="globalTabCount">0</span></code> tabs open globally.</p>
+    <p>You have <code><span id="localTabCount">0</span></code> tabs open in this window.</p>
+  </header>
+
   <nav>
     <ul id='nav-links'>
-      <li class="active" data-section="statusSection">Status</li>
-      <li data-section="preferencesSection">Preferences</li>
+      <li class="active" data-section="preferencesSection">Preferences</li>
       <li data-section="archiveSection">Archive</li>
       <li data-section="aboutSection">About</li>
     </ul>
@@ -19,12 +24,7 @@
 
   <hr>
 
-  <section class="active" id="statusSection">
-    <p>You have <code><span id="globalTabCount">0</span></code> tabs open globally.</p>
-    <p>You have <code><span id="localTabCount">0</span></code> tabs open in this window.</p>
-  </section>
-
-  <section id="preferencesSection">
+  <section class="active" id="preferencesSection">
     <form>
       <fieldset>
         <legend>Desired number of tabs</legend>

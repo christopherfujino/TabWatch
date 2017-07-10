@@ -23,6 +23,7 @@ section.active {
 #nav-links > li {
   float: left;
   margin-right: 1.5em;
+  user-select: none;
 }
 
 #nav-links > li.active {
@@ -35,7 +36,6 @@ section.active {
 
 #nav-links > li:hover:not(.active) {
   cursor: pointer;
-  user-select: none;
   text-decoration: underline;
 }
 

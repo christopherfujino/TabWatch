@@ -1,6 +1,6 @@
 const navLinks = document.getElementById('nav-links');
+const tabPicker = document.getElementById('tabPicker');
 
-let tabPicker = document.getElementById('tabPicker');
 chrome.storage.sync.get(['tabLimit', 'tabScope'], function (res) {
   tabPicker.value = res.tabLimit;
   document.querySelector(`input[value="${res.tabScope}"]`).value = res.tabScope;
