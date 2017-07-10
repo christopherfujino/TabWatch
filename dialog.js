@@ -1,5 +1,18 @@
 const navLinks = document.getElementById('nav-links');
 
+let tabPicker = document.getElementById('tabPicker');
+console.log(tabPicker);
+chrome.storage.sync.get('tabLimit', function (res) {
+  tabPicker.value = res.tabLimit;
+});
+
+tabPicker.addEventListener('input', function (e) {
+  console.log(e.target);
+  let value = e.target.value;
+  let updateBadge = chrome.extension.getBackgroundPage().updateBadge;
+  chrome.storage.sync.set({tabLimit: value},updateBadge);
+});
+
 function getSectionFromNav (nav) {
   return document.getElementById(nav.getAttribute('data-section'));
 }

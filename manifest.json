@@ -18,7 +18,10 @@
 
   "minimum_chrome_version" : "38.0",
 
+  "options_page" : "options.html",
+
   "permissions" : [
-    "tabs"
+    "tabs",
+    "storage"
   ]
 }

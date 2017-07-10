@@ -1,12 +1,17 @@
 // could this be an event page rather than background?
 // https://developer.chrome.com/extensions/event_pages
-let preferences = {
-  limit: 5,
-  tracking: 'local'
-}
 
-let limit = 5;
-
+// load/set chrome.sync settings
+chrome.storage.sync.get(['tabScope', 'tabLimit'], function (res) {
+  if (!res.tabScope || !res.tabLimit) {
+    chrome.storage.sync.set({
+      'tabScope' : 'local',
+      'tabLimit' : '5'
+    }, updateBadge);
+  } else {
+    updateBadge();
+  }
+});
 
 const colors = {
   green: '#008744',
@@ -17,26 +22,30 @@ const colors = {
 }
 
 function updateBadge () {
-  let config = {};
-  if (preferences.tracking === 'local') {
-    config.currentWindow = true;
-  }
+  console.log('Entered updateBadge()...')
+  chrome.storage.sync.get('tabScope', function (scope) {
+    let config = {};
+    if (scope === 'local') config.currentWindow = true;
 
-  chrome.tabs.query(config, function (tabs) {
-    chrome.browserAction.setBadgeText({
-      text: '' + tabs.length
+    chrome.tabs.query(config, function (tabs) {
+      chrome.browserAction.setBadgeText({
+        text: '' + tabs.length
+      });
+      let color;
+      chrome.storage.sync.get('tabLimit', function (res) {
+        limit = parseInt(res.tabLimit, 10);
+        console.log(`TabLimit is currently: ${limit}`);
+        if (tabs.length < limit) color = colors.green;
+        else if (tabs.length === limit) color = colors.yellow;
+        else color = colors.red;
+        chrome.browserAction.setBadgeBackgroundColor({
+          color: color
+        });
+      });
     });
-    let color;
-    if (tabs.length < limit) color = colors.green;
-    else if (tabs.length === limit) color = colors.yellow;
-    else color = colors.red;
-    chrome.browserAction.setBadgeBackgroundColor({
-      color: color
-    })
-  }); // query onLoad
+  })
 }
 
-updateBadge();  // onLoad
 chrome.tabs.onCreated.addListener(updateBadge);
 chrome.tabs.onRemoved.addListener(updateBadge);
 chrome.tabs.onDetached.addListener(updateBadge);
