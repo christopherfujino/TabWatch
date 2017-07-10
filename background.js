@@ -3,8 +3,7 @@
 
 // load/set chrome.sync settings
 const currentVersion = [0, 4, 0];
-chrome.storage.sync.set({ tabScope: 'window', tabLimit: '5', version: currentVersion }, updateBadge);
-/*
+//chrome.storage.sync.set({ tabScope: 'window', tabLimit: '5', version: currentVersion }, updateBadge);
 chrome.storage.sync.get(['tabScope', 'tabLimit', 'version'], function (res) {
   if (!res.tabScope || !res.tabLimit) {
     chrome.storage.sync.set({
@@ -15,7 +14,7 @@ chrome.storage.sync.get(['tabScope', 'tabLimit', 'version'], function (res) {
     updateBadge();
   }
 });
-*/
+
 const colors = {
   green: '#008744',
   blue: '#0057e7',
