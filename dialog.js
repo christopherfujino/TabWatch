@@ -1,4 +1,4 @@
-const navLinks = document.getElementById('nav-links');
+const navLinks = document.getElementById('navLinks');
 const tabPicker = document.getElementById('tabPicker');
 
 chrome.storage.sync.get(['tabLimit', 'tabScope'], function (res) {
