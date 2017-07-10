@@ -11,26 +11,26 @@ section.active {
   display: block;
 }
 
-#nav-links {
+#navLinks {
   list-style-type: none;
   padding: 0px;
 }
 
-#nav-links > li {
+#navLinks > li {
   float: left;
   margin-right: 1.5em;
   user-select: none;
 }
 
-#nav-links > li.active {
+#navLinks > li.active {
   opacity: 0.5
 }
 
-#nav-links > li:last-of-type {
+#navLinks > li:last-of-type {
   margin-right: 0px;
 }
 
-#nav-links > li:hover:not(.active) {
+#navLinks > li:hover:not(.active) {
   cursor: pointer;
   text-decoration: underline;
 }
