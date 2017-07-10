@@ -3,7 +3,7 @@ const navLinks = document.getElementById('nav-links');
 let tabPicker = document.getElementById('tabPicker');
 chrome.storage.sync.get(['tabLimit', 'tabScope'], function (res) {
   tabPicker.value = res.tabLimit;
-  document.querySelector(`input[value="${res.tabScope}"]`).value = true;
+  document.querySelector(`input[value="${res.tabScope}"]`).value = res.tabScope;
 });
 
 const updateBadge = chrome.extension.getBackgroundPage().updateBadge;
@@ -13,10 +13,12 @@ tabPicker.addEventListener('input', function (e) {
   chrome.storage.sync.set({tabLimit: limit}, updateBadge);
 });
 
-let x = document.querySelectorAll('input[name="tabScope"]');
-x.forEach(function (radio) {
+document.querySelectorAll('input[name="tabScope"]').forEach(function (radio) {
   radio.addEventListener('change', function (e) {
-    const scope = e.target.value;
+    //console.log(e.target.value);
+    console.log(this.value);
+    //const scope = e.target.value;
+    let scope = this.value;
     chrome.storage.sync.set({tabScope: scope}, updateBadge);
   })
 })
