@@ -1,6 +1,12 @@
 // could this be an event page rather than background?
 // https://developer.chrome.com/extensions/event_pages
+let preferences = {
+  limit: 5,
+  tracking: 'local'
+}
+
 let limit = 5;
+
 
 const colors = {
   green: '#008744',
@@ -11,7 +17,12 @@ const colors = {
 }
 
 function updateBadge () {
-  chrome.tabs.query({}, function (tabs) {
+  let config = {};
+  if (preferences.tracking === 'local') {
+    config.currentWindow = true;
+  }
+
+  chrome.tabs.query(config, function (tabs) {
     chrome.browserAction.setBadgeText({
       text: '' + tabs.length
     });
@@ -30,3 +41,5 @@ chrome.tabs.onCreated.addListener(updateBadge);
 chrome.tabs.onRemoved.addListener(updateBadge);
 chrome.tabs.onDetached.addListener(updateBadge);
 chrome.tabs.onAttached.addListener(updateBadge);
+//chrome.tabs.onActivated.addListener(updateBadge);
+chrome.windows.onFocusChanged.addListener(updateBadge);

@@ -6,7 +6,7 @@
   "version" : "0.2.0",
 
   "background" : {
-    "scripts" : ["main.js"],
+    "scripts" : ["background.js"],
     "persistent" : true
   },
 
