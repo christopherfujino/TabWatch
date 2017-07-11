@@ -67,4 +67,4 @@ chrome.tabs.onDetached.addListener(updateBadge);
 chrome.tabs.onAttached.addListener(updateBadge);
 
 // can we remove this?
-chrome.windows.onFocusChanged.addListener(updateBadge);
+//chrome.windows.onFocusChanged.addListener(updateBadge);
