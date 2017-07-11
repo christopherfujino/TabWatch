@@ -2,7 +2,7 @@
 // https://developer.chrome.com/extensions/event_pages
 
 // load/set chrome.sync settings
-const currentVersion = [0, 4, 3];
+const currentVersion = [0, 5, 1];
 //chrome.storage.sync.set({ tabScope: 'window', tabLimit: '5', version: currentVersion }, updateBadge);
 //*
 chrome.storage.sync.get(['tabScope', 'tabLimit', 'version'], function (res) {
