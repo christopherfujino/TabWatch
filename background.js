@@ -26,6 +26,7 @@ const colors = {
 }
 
 function windowUpdate (limit, tabs) {
+  console.log('limit', limit);
   let color, length = tabs.length;
   if (tabs.length < limit) color = colors.green;
   else if (length === limit) color = colors.yellow;
@@ -50,11 +51,16 @@ function updateBadge () {
     let limit = parseInt(res.tabLimit, 10);
     let winUpdate = windowUpdate.bind(null, limit);
     if (res.tabScope === 'window') {
-      chrome.windows.getAll({populate: true, windowTypes: ['normal']}, function (windows) {
-        windows.forEach(function (win) {
-          chrome.tabs.query({windowId: win.id}, winUpdate);
-        })
-      })
+      chrome.windows.getAll(
+        {
+          populate: true,
+          windowTypes: ['normal']
+        }, function (windows) {
+          windows.forEach(function (win) {
+            chrome.tabs.query({windowId: win.id}, winUpdate);
+          })
+        }
+      );
     } else {
       chrome.tabs.query({}, winUpdate);
     }
