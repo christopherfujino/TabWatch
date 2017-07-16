@@ -4,6 +4,11 @@
   "name" : "TabWatch",
   "description" : "This extension will warn you if you have too many tabs open",
   "version" : "0.5.1",
+  "icons": {
+    "16": "icon19.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
 
   "background" : {
     "scripts" : ["background.js"],
@@ -12,7 +17,7 @@
 
   "browser_action" : {
     "default_title" : "TabWatch",
-    "default_icon" : "icon.png",
+    "default_icon" : "icon19.png",
     "default_popup" : "dialog.html"
   },
 
